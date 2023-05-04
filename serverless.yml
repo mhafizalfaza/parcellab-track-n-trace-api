@@ -1,0 +1,64 @@
+service: parcellab-backend
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  environment:
+    NODE_ENV: dev
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+package:
+  exclude:
+    - config/.env.stg
+    - config/.env.pro
+  include:
+    - config/.env.dev
+
+functions:
+  findLocations:
+    handler: app/handler/locations.find
+    events:
+      - http:
+          path: locations
+          method: get
+  findLocation:
+    handler: app/handler/locations.findOne
+    events:
+      - http:
+          path: locations/{id}
+          method: get
+  createShipment:
+    handler: app/handler/shipments.create
+    events:
+      - http:
+          path: shipments
+          method: post
+    timeout: 30
+  updateShipment:
+    handler: app/handler/shipments.update
+    events:
+      - http:
+          path: shipments/{id}
+          method: put
+  findShipments:
+    handler: app/handler/shipments.find
+    events:
+      - http:
+          path: shipments
+          method: get
+  findShipment:
+    handler: app/handler/shipments.findOne
+    events:
+      - http:
+          path: shipments/{id}
+          method: get
+
+  deleteShipment:
+    handler: app/handler/shipments.deleteOne
+    events:
+      - http:
+          path: shipments/{id}
+          method: delete

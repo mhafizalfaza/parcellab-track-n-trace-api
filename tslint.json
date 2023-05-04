@@ -1,0 +1,10 @@
+{
+  "extends": ["tslint-config-airbnb"],
+  "indent": [true, "tabs", 2],
+  "linterOptions": {
+    "exclude": [
+      "app/utils/tests/*location.mock.ts",
+      "app/utils/tests/*shipments.mock.ts"
+    ]
+  }
+}

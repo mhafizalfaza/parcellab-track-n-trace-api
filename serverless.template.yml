@@ -1,0 +1,6 @@
+name: parcellab-backend
+org: serverlessinc
+description: Parcel Lab Backend for Track and Trace Application
+keywords: aws, serverless, faas, lambda, node, typescript
+repo: https://github.com/mhafizalfaza/parcellab-backend
+license: MIT
